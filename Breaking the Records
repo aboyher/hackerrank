@@ -1,0 +1,23 @@
+#!/bin/python3
+
+import sys
+
+def breakingRecords(score):
+    max = score[0]
+    min = score[0]
+    num_max = 0
+    num_min = 0
+    for i in range(1,len(score)):
+        if score[i]>max:
+            max = score[i]
+            num_max+=1
+        if score[i]<min:
+            min = score[i]
+            num_min+=1
+    return (num_max, num_min)
+
+if __name__ == "__main__":
+    n = int(input().strip())
+    score = list(map(int, input().strip().split(' ')))
+    result = breakingRecords(score)
+    print (" ".join(map(str, result)))
