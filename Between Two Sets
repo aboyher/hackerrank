@@ -1,0 +1,36 @@
+#!/bin/python3
+
+import sys
+
+def isAinX(X,A):
+    for a in A:
+        if X%a!=0:
+            return False
+    return True
+
+def isXinB(X,B):
+    for b in B:
+        if b%X != 0:
+            return False
+    return True
+def getTotalX(a, b):
+    
+    a.sort()
+    b.sort()
+
+    totalx = 0
+    for x in range(a[-1],b[0]+1,a[-1]):
+        if isAinX(x,a):
+            if isXinB(x,b):
+                totalx+=1
+    return totalx 
+            
+            
+
+if __name__ == "__main__":
+    n, m = input().strip().split(' ')
+    n, m = [int(n), int(m)]
+    a = list(map(int, input().strip().split(' ')))
+    b = list(map(int, input().strip().split(' ')))
+    total = getTotalX(a, b)
+    print(total)
